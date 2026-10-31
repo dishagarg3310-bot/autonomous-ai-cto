@@ -1,0 +1,117 @@
+{
+  "project_name": "employee_management",
+  "db_tables": [
+    {
+      "table_name": "users",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "name": "hashed_password",
+          "type": "string"
+        },
+        {
+          "name": "role",
+          "type": "string"
+        }
+      ],
+      "is_auth_table": true
+    },
+    {
+      "table_name": "employees",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "name": "department",
+          "type": "string"
+        },
+        {
+          "name": "job_title",
+          "type": "string"
+        },
+        {
+          "name": "user_id",
+          "type": "string",
+          "foreign_key": "users.id"
+        }
+      ]
+    }
+  ],
+  "api_routes": [
+    {
+      "method": "POST",
+      "path": "/auth/signup",
+      "table": "users",
+      "is_signup_route": true,
+      "description": "Creates a new user account with a hashed password and role"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "table": "users",
+      "is_login_route": true,
+      "description": "Logs in a user and returns a JWT access token"
+    },
+    {
+      "method": "GET",
+      "path": "/users/me",
+      "table": "users",
+      "requires_auth": true,
+      "description": "Returns the currently logged-in user's information"
+    },
+    {
+      "method": "GET",
+      "path": "/employees",
+      "table": "employees",
+      "query_params": {
+        "limit": "int",
+        "offset": "int"
+      },
+      "description": "Lists all employees with pagination"
+    },
+    {
+      "method": "POST",
+      "path": "/employees",
+      "table": "employees",
+      "description": "Adds a new employee"
+    },
+    {
+      "method": "GET",
+      "path": "/employees/{id}",
+      "table": "employees",
+      "requires_auth": true,
+      "description": "Views the details of an existing employee"
+    },
+    {
+      "method": "PUT",
+      "path": "/employees/{id}",
+      "table": "employees",
+      "requires_auth": true,
+      "description": "Edits the details of an existing employee"
+    },
+    {
+      "method": "DELETE",
+      "path": "/employees/{id}",
+      "table": "employees",
+      "requires_auth": true,
+      "description": "Deletes an existing employee"
+    }
+  ]
+}

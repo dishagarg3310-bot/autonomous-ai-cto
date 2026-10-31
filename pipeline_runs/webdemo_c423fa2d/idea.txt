@@ -1,0 +1,1 @@
+Employee management system with separate dashboards for admin and employee.

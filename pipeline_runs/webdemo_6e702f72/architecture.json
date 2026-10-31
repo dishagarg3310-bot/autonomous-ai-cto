@@ -1,0 +1,95 @@
+{
+  "project_name": "notes_app",
+  "db_tables": [
+    {
+      "table_name": "users",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "name": "hashed_password",
+          "type": "string"
+        }
+      ],
+      "is_auth_table": true
+    },
+    {
+      "table_name": "notes",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "owner_id",
+          "type": "string",
+          "foreign_key": "users.id"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "content",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "api_routes": [
+    {
+      "method": "POST",
+      "path": "/auth/signup",
+      "table": "users",
+      "is_signup_route": true,
+      "description": "Creates a new user account with a hashed password"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "table": "users",
+      "is_login_route": true,
+      "description": "Logs in a user and returns a JWT access token"
+    },
+    {
+      "method": "POST",
+      "path": "/notes",
+      "table": "notes",
+      "description": "Creates a new note"
+    },
+    {
+      "method": "GET",
+      "path": "/notes",
+      "table": "notes",
+      "query_params": {
+        "limit": "int",
+        "offset": "int"
+      },
+      "description": "Lists notes with pagination"
+    },
+    {
+      "method": "GET",
+      "path": "/notes/{id}",
+      "table": "notes",
+      "description": "Retrieves a specific note"
+    },
+    {
+      "method": "PUT",
+      "path": "/notes/{id}",
+      "table": "notes",
+      "description": "Updates an existing note"
+    },
+    {
+      "method": "DELETE",
+      "path": "/notes/{id}",
+      "table": "notes",
+      "description": "Deletes an existing note"
+    }
+  ]
+}

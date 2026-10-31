@@ -1,0 +1,32 @@
+{
+  "project_name": "cafe_dogwalker_repair_service",
+  "actors": [
+    "user"
+  ],
+  "features": [
+    {
+      "name": "Opening hours section",
+      "description": "The site displays the opening hours for the caf\u00e9, dog walker, or repair service.",
+      "priority": "must-have"
+    },
+    {
+      "name": "Image gallery",
+      "description": "A gallery of images showcasing the caf\u00e9, dog walker's services, or repair service's work.",
+      "priority": "must-have"
+    },
+    {
+      "name": "Contact form",
+      "description": "A form allowing users to send a message or contact information to the service provider.",
+      "priority": "must-have"
+    }
+  ],
+  "constraints": [
+    "No paid third-party APIs may be used for image gallery or contact form functionality.",
+    "The contact form must be accessible and functional without requiring user login."
+  ],
+  "acceptance_criteria": [
+    "The opening hours section displays the correct opening times for the caf\u00e9, dog walker, or repair service.",
+    "The image gallery contains at least 5 high-quality images relevant to the service provided.",
+    "The contact form can be submitted without error, and the user receives a confirmation message."
+  ]
+}

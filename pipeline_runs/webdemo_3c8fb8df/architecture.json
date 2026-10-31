@@ -1,0 +1,108 @@
+{
+  "project_name": "notes_manager",
+  "db_tables": [
+    {
+      "table_name": "users",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "name": "hashed_password",
+          "type": "string"
+        }
+      ],
+      "is_auth_table": true
+    },
+    {
+      "table_name": "notes",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "owner_id",
+          "type": "string",
+          "foreign_key": "users.id"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "content",
+          "type": "text"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        },
+        {
+          "name": "priority",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "api_routes": [
+    {
+      "method": "POST",
+      "path": "/auth/signup",
+      "table": "users",
+      "is_signup_route": true,
+      "description": "Creates a new user account with a hashed password"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "table": "users",
+      "is_login_route": true,
+      "description": "Logs in a user and returns a JWT access token"
+    },
+    {
+      "method": "POST",
+      "path": "/notes",
+      "table": "notes",
+      "description": "Creates a new note"
+    },
+    {
+      "method": "GET",
+      "path": "/notes",
+      "table": "notes",
+      "query_params": {
+        "status": "string",
+        "priority": "string",
+        "limit": "int",
+        "offset": "int"
+      },
+      "description": "Lists notes with an optional status and priority filter and pagination"
+    },
+    {
+      "method": "DELETE",
+      "path": "/notes/{id}",
+      "table": "notes",
+      "requires_auth": true,
+      "description": "Deletes an existing note"
+    },
+    {
+      "method": "PUT",
+      "path": "/notes/{id}",
+      "table": "notes",
+      "requires_auth": true,
+      "description": "Edits an existing note's title and content"
+    },
+    {
+      "method": "PATCH",
+      "path": "/notes/{id}",
+      "table": "notes",
+      "requires_auth": true,
+      "description": "Updates the status or priority of an existing note"
+    }
+  ]
+}

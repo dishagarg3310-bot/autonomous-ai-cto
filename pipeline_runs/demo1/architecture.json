@@ -1,0 +1,122 @@
+{
+  "project_name": "photo_sharing",
+  "db_tables": [
+    {
+      "table_name": "users",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "name": "hashed_password",
+          "type": "string"
+        }
+      ],
+      "is_auth_table": true
+    },
+    {
+      "table_name": "photos",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "owner_id",
+          "type": "string",
+          "foreign_key": "users.id"
+        },
+        {
+          "name": "filename",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "table_name": "comments",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "photo_id",
+          "type": "string",
+          "foreign_key": "photos.id"
+        },
+        {
+          "name": "owner_id",
+          "type": "string",
+          "foreign_key": "users.id"
+        },
+        {
+          "name": "text",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "api_routes": [
+    {
+      "method": "POST",
+      "path": "/auth/signup",
+      "table": "users",
+      "is_signup_route": true,
+      "description": "Creates a new user account with a hashed password"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "table": "users",
+      "is_login_route": true,
+      "description": "Logs in a user and returns a JWT access token"
+    },
+    {
+      "method": "POST",
+      "path": "/photos",
+      "table": "photos",
+      "description": "Creates a new photo"
+    },
+    {
+      "method": "GET",
+      "path": "/photos",
+      "table": "photos",
+      "query_params": {
+        "limit": "int",
+        "offset": "int"
+      },
+      "description": "Lists photos with pagination"
+    },
+    {
+      "method": "GET",
+      "path": "/photos/{id}",
+      "table": "photos",
+      "description": "Gets a photo by ID"
+    },
+    {
+      "method": "POST",
+      "path": "/photos/{id}/comments",
+      "table": "comments",
+      "description": "Creates a new comment for a photo"
+    },
+    {
+      "method": "GET",
+      "path": "/photos/{id}/comments",
+      "table": "comments",
+      "query_params": {
+        "limit": "int",
+        "offset": "int"
+      },
+      "description": "Lists comments for a photo with pagination"
+    }
+  ]
+}

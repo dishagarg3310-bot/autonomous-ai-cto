@@ -1,0 +1,44 @@
+{
+  "project_name": "notes_app",
+  "actors": [
+    "user"
+  ],
+  "features": [
+    {
+      "name": "User authentication",
+      "description": "Users can sign up with an email and password, then log in to receive an access token.",
+      "priority": "must-have"
+    },
+    {
+      "name": "Note creation",
+      "description": "A logged-in user can create a new note with a title and content.",
+      "priority": "must-have"
+    },
+    {
+      "name": "Note listing",
+      "description": "A logged-in user can view a list of all their notes.",
+      "priority": "must-have"
+    },
+    {
+      "name": "Note updating",
+      "description": "A logged-in user can edit an existing note's title and content.",
+      "priority": "must-have"
+    },
+    {
+      "name": "Note deletion",
+      "description": "A logged-in user can delete an existing note.",
+      "priority": "must-have"
+    }
+  ],
+  "constraints": [
+    "No paid third-party APIs may be used.",
+    "Passwords must be stored hashed, never in plain text."
+  ],
+  "acceptance_criteria": [
+    "A new user can sign up and then log in with the same credentials.",
+    "A logged-in user can create a new note and see it appear in their list of notes.",
+    "A logged-in user can view a list of all their notes.",
+    "A logged-in user can edit an existing note and see the changes reflected in their list of notes.",
+    "A logged-in user can delete an existing note and no longer see it in their list of notes."
+  ]
+}

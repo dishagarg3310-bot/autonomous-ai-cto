@@ -1,0 +1,102 @@
+{
+  "project_name": "todo_app",
+  "db_tables": [
+    {
+      "table_name": "users",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "name": "hashed_password",
+          "type": "string"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp"
+        }
+      ],
+      "is_auth_table": true
+    },
+    {
+      "table_name": "tasks",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "user_id",
+          "type": "string",
+          "foreign_key": "users.id"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "completed",
+          "type": "boolean"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp"
+        }
+      ]
+    }
+  ],
+  "api_routes": [
+    {
+      "method": "POST",
+      "path": "/auth/signup",
+      "table": "users",
+      "is_signup_route": true,
+      "description": "Creates a new user account with a hashed password"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "table": "users",
+      "is_login_route": true,
+      "description": "Logs in a user and returns a JWT access token"
+    },
+    {
+      "method": "GET",
+      "path": "/tasks",
+      "table": "tasks",
+      "query_params": {
+        "completed": "boolean",
+        "limit": "int",
+        "offset": "int"
+      },
+      "description": "Lists tasks with an optional completed filter and pagination"
+    },
+    {
+      "method": "POST",
+      "path": "/tasks",
+      "table": "tasks",
+      "description": "Adds a new task to the to-do list"
+    },
+    {
+      "method": "PATCH",
+      "path": "/tasks/{id}",
+      "table": "tasks",
+      "description": "Marks a task as done after completing it"
+    },
+    {
+      "method": "DELETE",
+      "path": "/tasks/{id}",
+      "table": "tasks",
+      "description": "Deletes a task from the to-do list"
+    }
+  ]
+}

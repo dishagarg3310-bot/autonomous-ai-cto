@@ -1,0 +1,1 @@
+Build a school management system with separate dashboards for teacher and student. Teachers add and update students and marks. Students can only view their own marks. Use a blue colour theme.

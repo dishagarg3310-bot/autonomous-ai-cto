@@ -1,0 +1,151 @@
+{
+  "project_name": "school_management_system",
+  "pages": [
+    {
+      "name": "UserSignupPage",
+      "description": "Creates a new user account with a hashed password",
+      "calls_api": {
+        "method": "POST",
+        "path": "/auth/signup",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "email": "string",
+          "role": "string",
+          "password": "string"
+        },
+        "response_body": {
+          "id": "string",
+          "email": "string",
+          "role": "string"
+        }
+      }
+    },
+    {
+      "name": "UserLoginPage",
+      "description": "Logs in a user and returns a JWT access token",
+      "calls_api": {
+        "method": "POST",
+        "path": "/auth/login",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "email": "string",
+          "role": "string",
+          "password": "string"
+        },
+        "response_body": {
+          "access_token": "string",
+          "token_type": "string"
+        }
+      }
+    },
+    {
+      "name": "UserProfilePage",
+      "description": "Returns the currently logged-in user's information",
+      "calls_api": {
+        "method": "GET",
+        "path": "/users/me",
+        "base_url": "http://127.0.0.1:9100",
+        "response_body": {
+          "id": "uuid",
+          "email": "string",
+          "role": "string"
+        }
+      }
+    },
+    {
+      "name": "CreateStudentPage",
+      "description": "Creates a new student",
+      "calls_api": {
+        "method": "POST",
+        "path": "/students",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "user_id": "string",
+          "name": "string",
+          "grade": "string"
+        },
+        "response_body": {
+          "id": "uuid",
+          "user_id": "string",
+          "name": "string",
+          "grade": "string"
+        }
+      }
+    },
+    {
+      "name": "UpdateStudentPage",
+      "description": "Updates an existing student Only changed fields need to be sent - fields left unchanged on the backend are preserved.",
+      "calls_api": {
+        "method": "PUT",
+        "path": "/students/{id}",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "user_id": "string",
+          "name": "string",
+          "grade": "string"
+        },
+        "response_body": {
+          "id": "uuid",
+          "user_id": "string",
+          "name": "string",
+          "grade": "string"
+        }
+      }
+    },
+    {
+      "name": "CreateMarkPage",
+      "description": "Creates a new mark",
+      "calls_api": {
+        "method": "POST",
+        "path": "/marks",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "student_id": "string",
+          "subject": "string",
+          "score": "int"
+        },
+        "response_body": {
+          "id": "uuid",
+          "student_id": "string",
+          "subject": "string",
+          "score": "int"
+        }
+      }
+    },
+    {
+      "name": "UpdateMarkPage",
+      "description": "Updates an existing mark Only changed fields need to be sent - fields left unchanged on the backend are preserved.",
+      "calls_api": {
+        "method": "PUT",
+        "path": "/marks/{id}",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "student_id": "string",
+          "subject": "string",
+          "score": "int"
+        },
+        "response_body": {
+          "id": "uuid",
+          "student_id": "string",
+          "subject": "string",
+          "score": "int"
+        }
+      }
+    },
+    {
+      "name": "MarkMarksPage",
+      "description": "Lists marks for a specific student",
+      "calls_api": {
+        "method": "GET",
+        "path": "/students/{id}/marks",
+        "base_url": "http://127.0.0.1:9100",
+        "response_body": {
+          "id": "uuid",
+          "student_id": "string",
+          "subject": "string",
+          "score": "int"
+        }
+      }
+    }
+  ]
+}

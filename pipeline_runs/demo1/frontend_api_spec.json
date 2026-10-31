@@ -1,0 +1,122 @@
+{
+  "project_name": "photo_sharing",
+  "pages": [
+    {
+      "name": "UserSignupPage",
+      "description": "Creates a new user account with a hashed password",
+      "calls_api": {
+        "method": "POST",
+        "path": "/auth/signup",
+        "base_url": "http://127.0.0.1:8010",
+        "request_body": {
+          "email": "string",
+          "password": "string"
+        },
+        "response_body": {
+          "id": "string",
+          "email": "string"
+        }
+      }
+    },
+    {
+      "name": "UserLoginPage",
+      "description": "Logs in a user and returns a JWT access token",
+      "calls_api": {
+        "method": "POST",
+        "path": "/auth/login",
+        "base_url": "http://127.0.0.1:8010",
+        "request_body": {
+          "email": "string",
+          "password": "string"
+        },
+        "response_body": {
+          "access_token": "string",
+          "token_type": "string"
+        }
+      }
+    },
+    {
+      "name": "CreatePhotoPage",
+      "description": "Creates a new photo",
+      "calls_api": {
+        "method": "POST",
+        "path": "/photos",
+        "base_url": "http://127.0.0.1:8010",
+        "request_body": {
+          "owner_id": "string",
+          "filename": "string",
+          "description": "string"
+        },
+        "response_body": {
+          "id": "uuid",
+          "owner_id": "string",
+          "filename": "string",
+          "description": "string"
+        }
+      }
+    },
+    {
+      "name": "PhotoListPage",
+      "description": "Lists photos with pagination",
+      "calls_api": {
+        "method": "GET",
+        "path": "/photos",
+        "base_url": "http://127.0.0.1:8010",
+        "query_params": {
+          "limit": "int",
+          "offset": "int"
+        },
+        "response_body": "array of {id, owner_id, filename, description}"
+      }
+    },
+    {
+      "name": "PhotoDetailPage",
+      "description": "Gets a photo by ID",
+      "calls_api": {
+        "method": "GET",
+        "path": "/photos/{id}",
+        "base_url": "http://127.0.0.1:8010",
+        "response_body": {
+          "id": "uuid",
+          "owner_id": "string",
+          "filename": "string",
+          "description": "string"
+        }
+      }
+    },
+    {
+      "name": "CreateCommentPage",
+      "description": "Creates a new comment for a photo",
+      "calls_api": {
+        "method": "POST",
+        "path": "/photos/{id}/comments",
+        "base_url": "http://127.0.0.1:8010",
+        "request_body": {
+          "photo_id": "string",
+          "owner_id": "string",
+          "text": "string"
+        },
+        "response_body": {
+          "id": "uuid",
+          "photo_id": "string",
+          "owner_id": "string",
+          "text": "string"
+        }
+      }
+    },
+    {
+      "name": "CommentListPage",
+      "description": "Lists comments for a photo with pagination",
+      "calls_api": {
+        "method": "GET",
+        "path": "/photos/{id}/comments",
+        "base_url": "http://127.0.0.1:8010",
+        "query_params": {
+          "limit": "int",
+          "offset": "int"
+        },
+        "response_body": "array of {id, photo_id, owner_id, text}"
+      }
+    }
+  ]
+}

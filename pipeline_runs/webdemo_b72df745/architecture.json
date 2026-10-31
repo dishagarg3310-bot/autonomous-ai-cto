@@ -1,0 +1,84 @@
+{
+  "project_name": "cafe_dogwalker_repair_service",
+  "db_tables": [
+    {
+      "table_name": "services",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "opening_hours",
+          "type": "json"
+        },
+        {
+          "name": "gallery_images",
+          "type": "json"
+        }
+      ],
+      "is_auth_table": false
+    },
+    {
+      "table_name": "contact_messages",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "service_id",
+          "type": "string",
+          "foreign_key": "services.id"
+        },
+        {
+          "name": "message",
+          "type": "string"
+        }
+      ],
+      "is_auth_table": false
+    }
+  ],
+  "api_routes": [
+    {
+      "method": "GET",
+      "path": "/services/{id}",
+      "table": "services",
+      "query_params": {
+        "limit": "int",
+        "offset": "int"
+      },
+      "description": "Retrieves a service by ID"
+    },
+    {
+      "method": "GET",
+      "path": "/services/{id}/opening_hours",
+      "table": "services",
+      "query_params": {
+        "limit": "int",
+        "offset": "int"
+      },
+      "description": "Retrieves the opening hours for a service by ID"
+    },
+    {
+      "method": "GET",
+      "path": "/services/{id}/gallery_images",
+      "table": "services",
+      "query_params": {
+        "limit": "int",
+        "offset": "int"
+      },
+      "description": "Retrieves the gallery images for a service by ID"
+    },
+    {
+      "method": "POST",
+      "path": "/services/{id}/contact",
+      "table": "contact_messages",
+      "description": "Submits a contact message for a service"
+    }
+  ]
+}

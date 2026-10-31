@@ -1,0 +1,66 @@
+{
+  "project_name": "cafe_dogwalker_repair_service",
+  "pages": [
+    {
+      "name": "ServiceDetailPage",
+      "description": "Retrieves a service by ID",
+      "calls_api": {
+        "method": "GET",
+        "path": "/services/{id}",
+        "base_url": "http://127.0.0.1:9100",
+        "response_body": {
+          "id": "uuid",
+          "name": "string",
+          "opening_hours": "json",
+          "gallery_images": "json"
+        }
+      }
+    },
+    {
+      "name": "ServiceOpeningHoursPage",
+      "description": "Retrieves the opening hours for a service by ID",
+      "calls_api": {
+        "method": "GET",
+        "path": "/services/{id}/opening_hours",
+        "base_url": "http://127.0.0.1:9100",
+        "query_params": {
+          "limit": "int",
+          "offset": "int"
+        },
+        "response_body": "array of {id, name, opening_hours, gallery_images}"
+      }
+    },
+    {
+      "name": "ServiceGalleryImagesPage",
+      "description": "Retrieves the gallery images for a service by ID",
+      "calls_api": {
+        "method": "GET",
+        "path": "/services/{id}/gallery_images",
+        "base_url": "http://127.0.0.1:9100",
+        "query_params": {
+          "limit": "int",
+          "offset": "int"
+        },
+        "response_body": "array of {id, name, opening_hours, gallery_images}"
+      }
+    },
+    {
+      "name": "CreateContactMessagePage",
+      "description": "Submits a contact message for a service",
+      "calls_api": {
+        "method": "POST",
+        "path": "/services/{id}/contact",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "service_id": "string",
+          "message": "string"
+        },
+        "response_body": {
+          "id": "uuid",
+          "service_id": "string",
+          "message": "string"
+        }
+      }
+    }
+  ]
+}

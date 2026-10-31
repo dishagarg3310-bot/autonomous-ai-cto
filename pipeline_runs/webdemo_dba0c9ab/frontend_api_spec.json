@@ -1,0 +1,114 @@
+{
+  "project_name": "todo_app",
+  "pages": [
+    {
+      "name": "UserSignupPage",
+      "description": "Creates a new user account with a hashed password",
+      "calls_api": {
+        "method": "POST",
+        "path": "/auth/signup",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "email": "string",
+          "created_at": "timestamp",
+          "password": "string"
+        },
+        "response_body": {
+          "id": "string",
+          "email": "string",
+          "created_at": "timestamp"
+        }
+      }
+    },
+    {
+      "name": "UserLoginPage",
+      "description": "Logs in a user and returns a JWT access token",
+      "calls_api": {
+        "method": "POST",
+        "path": "/auth/login",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "email": "string",
+          "created_at": "timestamp",
+          "password": "string"
+        },
+        "response_body": {
+          "access_token": "string",
+          "token_type": "string"
+        }
+      }
+    },
+    {
+      "name": "TaskListPage",
+      "description": "Lists tasks with an optional completed filter and pagination",
+      "calls_api": {
+        "method": "GET",
+        "path": "/tasks",
+        "base_url": "http://127.0.0.1:9100",
+        "query_params": {
+          "completed": "boolean",
+          "limit": "int",
+          "offset": "int"
+        },
+        "response_body": "array of {id, user_id, title, completed, created_at, updated_at}"
+      }
+    },
+    {
+      "name": "CreateTaskPage",
+      "description": "Adds a new task to the to-do list",
+      "calls_api": {
+        "method": "POST",
+        "path": "/tasks",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "user_id": "string",
+          "title": "string",
+          "completed": "boolean",
+          "created_at": "timestamp",
+          "updated_at": "timestamp"
+        },
+        "response_body": {
+          "id": "uuid",
+          "user_id": "string",
+          "title": "string",
+          "completed": "boolean",
+          "created_at": "timestamp",
+          "updated_at": "timestamp"
+        }
+      }
+    },
+    {
+      "name": "UpdateTaskPage",
+      "description": "Marks a task as done after completing it Only changed fields need to be sent - fields left unchanged on the backend are preserved.",
+      "calls_api": {
+        "method": "PATCH",
+        "path": "/tasks/{id}",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "user_id": "string",
+          "title": "string",
+          "completed": "boolean",
+          "created_at": "timestamp",
+          "updated_at": "timestamp"
+        },
+        "response_body": {
+          "id": "uuid",
+          "user_id": "string",
+          "title": "string",
+          "completed": "boolean",
+          "created_at": "timestamp",
+          "updated_at": "timestamp"
+        }
+      }
+    },
+    {
+      "name": "TaskDeletePage",
+      "description": "Deletes a task from the to-do list",
+      "calls_api": {
+        "method": "DELETE",
+        "path": "/tasks/{id}",
+        "base_url": "http://127.0.0.1:9100"
+      }
+    }
+  ]
+}

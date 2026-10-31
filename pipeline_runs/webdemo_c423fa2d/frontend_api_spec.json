@@ -1,0 +1,144 @@
+{
+  "project_name": "employee_management",
+  "pages": [
+    {
+      "name": "UserSignupPage",
+      "description": "Creates a new user account with a hashed password and role",
+      "calls_api": {
+        "method": "POST",
+        "path": "/auth/signup",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "email": "string",
+          "role": "string",
+          "password": "string"
+        },
+        "response_body": {
+          "id": "string",
+          "email": "string",
+          "role": "string"
+        }
+      }
+    },
+    {
+      "name": "UserLoginPage",
+      "description": "Logs in a user and returns a JWT access token",
+      "calls_api": {
+        "method": "POST",
+        "path": "/auth/login",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "email": "string",
+          "role": "string",
+          "password": "string"
+        },
+        "response_body": {
+          "access_token": "string",
+          "token_type": "string"
+        }
+      }
+    },
+    {
+      "name": "UserProfilePage",
+      "description": "Returns the currently logged-in user's information",
+      "calls_api": {
+        "method": "GET",
+        "path": "/users/me",
+        "base_url": "http://127.0.0.1:9100",
+        "response_body": {
+          "id": "uuid",
+          "email": "string",
+          "role": "string"
+        }
+      }
+    },
+    {
+      "name": "EmployeeListPage",
+      "description": "Lists all employees with pagination",
+      "calls_api": {
+        "method": "GET",
+        "path": "/employees",
+        "base_url": "http://127.0.0.1:9100",
+        "query_params": {
+          "limit": "int",
+          "offset": "int"
+        },
+        "response_body": "array of {id, name, email, department, job_title, user_id}"
+      }
+    },
+    {
+      "name": "CreateEmployeePage",
+      "description": "Adds a new employee",
+      "calls_api": {
+        "method": "POST",
+        "path": "/employees",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "name": "string",
+          "email": "string",
+          "department": "string",
+          "job_title": "string",
+          "user_id": "string"
+        },
+        "response_body": {
+          "id": "uuid",
+          "name": "string",
+          "email": "string",
+          "department": "string",
+          "job_title": "string",
+          "user_id": "string"
+        }
+      }
+    },
+    {
+      "name": "EmployeeDetailPage",
+      "description": "Views the details of an existing employee",
+      "calls_api": {
+        "method": "GET",
+        "path": "/employees/{id}",
+        "base_url": "http://127.0.0.1:9100",
+        "response_body": {
+          "id": "uuid",
+          "name": "string",
+          "email": "string",
+          "department": "string",
+          "job_title": "string",
+          "user_id": "string"
+        }
+      }
+    },
+    {
+      "name": "UpdateEmployeePage",
+      "description": "Edits the details of an existing employee Only changed fields need to be sent - fields left unchanged on the backend are preserved.",
+      "calls_api": {
+        "method": "PUT",
+        "path": "/employees/{id}",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "name": "string",
+          "email": "string",
+          "department": "string",
+          "job_title": "string",
+          "user_id": "string"
+        },
+        "response_body": {
+          "id": "uuid",
+          "name": "string",
+          "email": "string",
+          "department": "string",
+          "job_title": "string",
+          "user_id": "string"
+        }
+      }
+    },
+    {
+      "name": "EmployeeDeletePage",
+      "description": "Deletes an existing employee",
+      "calls_api": {
+        "method": "DELETE",
+        "path": "/employees/{id}",
+        "base_url": "http://127.0.0.1:9100"
+      }
+    }
+  ]
+}

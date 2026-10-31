@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "steps": [
+    "[10:48:50] Backend Agent (chunked): starting. Reading architecture.json",
+    "[10:48:50] Backend Agent: generating database model 'User' for table 'users'...",
+    "[10:50:06] Backend Agent: generating database model 'Book' for table 'books'...",
+    "[10:52:09] Backend Agent: generating request/response schemas for 'User'...",
+    "[10:54:39] Backend Agent: generating request/response schemas for 'Book'...",
+    "[10:56:29] Backend Agent: generating route 'POST /auth/signup'...",
+    "[11:00:23] Backend Agent: generating route 'POST /auth/login'...",
+    "[11:02:18] Backend Agent: generating route 'GET /users/me'...",
+    "[11:04:50] Backend Agent: generating route 'POST /books'...",
+    "[11:08:22] Backend Agent: generating route 'GET /books'...",
+    "[11:11:31] Backend Agent: adding authentication helpers (hashing, JWT) for 'User'...",
+    "[11:11:31] Backend Agent: assembling all pieces into one file...",
+    "[11:11:31] Backend Agent: validating the assembled file...",
+    "[11:11:49] Backend Agent: assembled file is valid. \u2705",
+    "[11:11:49] Backend Agent: saved to generated_backend\\main.py (valid=True)",
+    "[11:11:49] Backend Agent: saved to generated_backend\\requirements.txt"
+  ]
+}

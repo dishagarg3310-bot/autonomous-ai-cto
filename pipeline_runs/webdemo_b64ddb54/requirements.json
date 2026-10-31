@@ -1,0 +1,29 @@
+{
+  "project_name": "school_management_system",
+  "actors": [
+    "teacher",
+    "student"
+  ],
+  "features": [
+    {
+      "name": "Teacher dashboard",
+      "description": "Teachers can add and update students and marks in the system.",
+      "priority": "must-have"
+    },
+    {
+      "name": "Student dashboard",
+      "description": "Students can only view their own marks in the system.",
+      "priority": "must-have"
+    }
+  ],
+  "constraints": [
+    "The system must use a blue color theme.",
+    "No paid third-party APIs may be used."
+  ],
+  "acceptance_criteria": [
+    "A teacher can add and update a student's information in the system.",
+    "A teacher can add and update a student's marks in the system.",
+    "A student can view their own marks in the system.",
+    "The system uses a blue color theme."
+  ]
+}

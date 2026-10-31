@@ -1,0 +1,32 @@
+{
+  "project_name": "todo_app",
+  "actors": [
+    "user"
+  ],
+  "features": [
+    {
+      "name": "Add tasks",
+      "description": "Users can add new tasks to their to-do list.",
+      "priority": "must-have"
+    },
+    {
+      "name": "Mark tasks as done",
+      "description": "Users can mark tasks as done after completing them.",
+      "priority": "must-have"
+    },
+    {
+      "name": "Delete tasks",
+      "description": "Users can delete tasks from their to-do list.",
+      "priority": "must-have"
+    }
+  ],
+  "constraints": [
+    "Tasks must be stored in a database.",
+    "Tasks must be accessible to the user who created them."
+  ],
+  "acceptance_criteria": [
+    "A user can add a new task to their to-do list.",
+    "A user can mark a task as done after completing it.",
+    "A user can delete a task from their to-do list."
+  ]
+}

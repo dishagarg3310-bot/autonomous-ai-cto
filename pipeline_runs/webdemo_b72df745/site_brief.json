@@ -1,0 +1,73 @@
+{
+  "business_name": "Paws & Cogs",
+  "emoji": "🐕‍🦼🛠️",
+  "tagline": "Your canine companion and mechanical magic.",
+  "about": "Welcome to Paws & Cogs, where furry friends and mechanical marvels are welcomed with open arms! Our cafe is not just a place to relax and enjoy coffee, but also a haven for our beloved dogs and their owners. Our dog walker service offers personalized care, while our repair service ensures your gadgets and tools are always in top condition.",
+  "cta": "Book Now",
+  "accent": "#FF8B00",
+  "mode": "light",
+  "mood": "playful",
+  "heading_font": "Poppins",
+  "hero": "center",
+  "style": "soft",
+  "gallery_layout": "grid",
+  "cards": [
+    {
+      "icon": "✨",
+      "title": "Pet Relaxation",
+      "text": "Enjoy a peaceful atmosphere with our cozy seating."
+    },
+    {
+      "icon": "🔧",
+      "title": "Dog Walker Service",
+      "text": "Get expert care for your furry friends."
+    },
+    {
+      "icon": "🛠️",
+      "title": "Repair Services",
+      "text": "Ensure your tools and gadgets are in top condition."
+    }
+  ],
+  "gallery": [
+    {
+      "icon": "🐶",
+      "caption": "Pet Portrait"
+    },
+    {
+      "icon": "🛠️",
+      "caption": "Tool Repair"
+    },
+    {
+      "icon": "🐕‍🦼",
+      "caption": "Dog Grooming"
+    },
+    {
+      "icon": "☕️",
+      "caption": "Coffee Enjoyment"
+    },
+    {
+      "icon": "🎉",
+      "caption": "Party Time"
+    },
+    {
+      "icon": "🔧",
+      "caption": "Tool Inspection"
+    }
+  ],
+  "hours": [
+    {
+      "day": "Mon - Fri",
+      "time": "9:00 - 18:00"
+    },
+    {
+      "day": "Sat",
+      "time": "10:00 - 16:00"
+    },
+    {
+      "day": "Sun",
+      "time": "Closed"
+    }
+  ],
+  "address": "123 Magical Lane, Magic Town",
+  "phone": "+1 123 456 7890"
+}

@@ -1,0 +1,44 @@
+{
+  "project_name": "employee_management",
+  "actors": [
+    "admin"
+  ],
+  "features": [
+    {
+      "name": "Admin login",
+      "description": "Admins can log in to the app using their credentials.",
+      "priority": "must-have"
+    },
+    {
+      "name": "Add employee",
+      "description": "Admins can add a new employee with their name, email, department, and job title.",
+      "priority": "must-have"
+    },
+    {
+      "name": "View employees",
+      "description": "Admins can view a list of all employees.",
+      "priority": "must-have"
+    },
+    {
+      "name": "Edit employee",
+      "description": "Admins can edit the details of an existing employee.",
+      "priority": "must-have"
+    },
+    {
+      "name": "Delete employee",
+      "description": "Admins can delete an existing employee.",
+      "priority": "must-have"
+    }
+  ],
+  "constraints": [
+    "The app must have a green gradient dashboard.",
+    "The app must be responsive and accessible on both desktop and mobile devices."
+  ],
+  "acceptance_criteria": [
+    "Admins can log in and view the green gradient dashboard.",
+    "Admins can add a new employee and see it appear in the employee list.",
+    "Admins can view the details of an existing employee.",
+    "Admins can edit the details of an existing employee and save the changes.",
+    "Admins can delete an existing employee and confirm the deletion."
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "project_name": "notes_app",
+  "pages": [
+    {
+      "name": "UserSignupPage",
+      "description": "Creates a new user account with a hashed password",
+      "calls_api": {
+        "method": "POST",
+        "path": "/auth/signup",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "email": "string",
+          "password": "string"
+        },
+        "response_body": {
+          "id": "string",
+          "email": "string"
+        }
+      }
+    },
+    {
+      "name": "UserLoginPage",
+      "description": "Logs in a user and returns a JWT access token",
+      "calls_api": {
+        "method": "POST",
+        "path": "/auth/login",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "email": "string",
+          "password": "string"
+        },
+        "response_body": {
+          "access_token": "string",
+          "token_type": "string"
+        }
+      }
+    },
+    {
+      "name": "UserProfilePage",
+      "description": "Returns the currently logged-in user's information",
+      "calls_api": {
+        "method": "GET",
+        "path": "/users/me",
+        "base_url": "http://127.0.0.1:9100",
+        "response_body": {
+          "id": "uuid",
+          "email": "string"
+        }
+      }
+    },
+    {
+      "name": "CreateNotePage",
+      "description": "Creates a new note",
+      "calls_api": {
+        "method": "POST",
+        "path": "/notes",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "owner_id": "string",
+          "content": "text",
+          "created_at": "timestamp",
+          "updated_at": "timestamp"
+        },
+        "response_body": {
+          "id": "uuid",
+          "owner_id": "string",
+          "content": "text",
+          "created_at": "timestamp",
+          "updated_at": "timestamp"
+        }
+      }
+    },
+    {
+      "name": "NoteListPage",
+      "description": "Lists notes with pagination",
+      "calls_api": {
+        "method": "GET",
+        "path": "/notes",
+        "base_url": "http://127.0.0.1:9100",
+        "query_params": {
+          "limit": "int",
+          "offset": "int"
+        },
+        "response_body": "array of {id, owner_id, content, created_at, updated_at}"
+      }
+    },
+    {
+      "name": "NoteDetailPage",
+      "description": "Returns a single note by ID",
+      "calls_api": {
+        "method": "GET",
+        "path": "/notes/{id}",
+        "base_url": "http://127.0.0.1:9100",
+        "response_body": {
+          "id": "uuid",
+          "owner_id": "string",
+          "content": "text",
+          "created_at": "timestamp",
+          "updated_at": "timestamp"
+        }
+      }
+    },
+    {
+      "name": "UpdateNotePage",
+      "description": "Updates an existing note Only changed fields need to be sent - fields left unchanged on the backend are preserved.",
+      "calls_api": {
+        "method": "PUT",
+        "path": "/notes/{id}",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "owner_id": "string",
+          "content": "text",
+          "created_at": "timestamp",
+          "updated_at": "timestamp"
+        },
+        "response_body": {
+          "id": "uuid",
+          "owner_id": "string",
+          "content": "text",
+          "created_at": "timestamp",
+          "updated_at": "timestamp"
+        }
+      }
+    },
+    {
+      "name": "NoteDeletePage",
+      "description": "Deletes an existing note",
+      "calls_api": {
+        "method": "DELETE",
+        "path": "/notes/{id}",
+        "base_url": "http://127.0.0.1:9100"
+      }
+    }
+  ]
+}

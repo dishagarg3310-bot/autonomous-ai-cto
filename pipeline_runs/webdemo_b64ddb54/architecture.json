@@ -1,0 +1,127 @@
+{
+  "project_name": "school_management_system",
+  "db_tables": [
+    {
+      "table_name": "users",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "name": "hashed_password",
+          "type": "string"
+        },
+        {
+          "name": "role",
+          "type": "string"
+        }
+      ],
+      "is_auth_table": true
+    },
+    {
+      "table_name": "students",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "user_id",
+          "type": "string",
+          "foreign_key": "users.id"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "grade",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "table_name": "marks",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "student_id",
+          "type": "string",
+          "foreign_key": "students.id"
+        },
+        {
+          "name": "subject",
+          "type": "string"
+        },
+        {
+          "name": "score",
+          "type": "int"
+        }
+      ]
+    }
+  ],
+  "api_routes": [
+    {
+      "method": "POST",
+      "path": "/auth/signup",
+      "table": "users",
+      "is_signup_route": true,
+      "description": "Creates a new user account with a hashed password"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/login",
+      "table": "users",
+      "is_login_route": true,
+      "description": "Logs in a user and returns a JWT access token"
+    },
+    {
+      "method": "GET",
+      "path": "/users/me",
+      "table": "users",
+      "requires_auth": true,
+      "description": "Returns the currently logged-in user's information"
+    },
+    {
+      "method": "POST",
+      "path": "/students",
+      "table": "students",
+      "description": "Creates a new student"
+    },
+    {
+      "method": "PUT",
+      "path": "/students/{id}",
+      "table": "students",
+      "requires_auth": true,
+      "description": "Updates an existing student"
+    },
+    {
+      "method": "POST",
+      "path": "/marks",
+      "table": "marks",
+      "description": "Creates a new mark"
+    },
+    {
+      "method": "PUT",
+      "path": "/marks/{id}",
+      "table": "marks",
+      "requires_auth": true,
+      "description": "Updates an existing mark"
+    },
+    {
+      "method": "GET",
+      "path": "/students/{id}/marks",
+      "table": "marks",
+      "requires_auth": true,
+      "description": "Lists marks for a specific student"
+    }
+  ]
+}

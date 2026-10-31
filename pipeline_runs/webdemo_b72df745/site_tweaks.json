@@ -1,0 +1,9 @@
+{
+  "accent": "#1f9d6b",
+  "dark": true,
+  "add": [
+    "faq",
+    "reviews"
+  ],
+  "remove": []
+}

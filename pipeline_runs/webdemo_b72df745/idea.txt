@@ -1,0 +1,1 @@
+Build a sample site for a fictional local cafe with an opening hours section, an image gallery, and a contact form. Warm brown colours.

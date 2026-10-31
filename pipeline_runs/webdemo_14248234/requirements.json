@@ -1,0 +1,26 @@
+{
+  "project_name": "book_tracker",
+  "actors": [
+    "user"
+  ],
+  "features": [
+    {
+      "name": "User authentication",
+      "description": "Users can sign up with an email and password, then log in to receive an access token.",
+      "priority": "must-have"
+    },
+    {
+      "name": "Book tracking",
+      "description": "A logged-in user can add books to their list of books they want to read.",
+      "priority": "must-have"
+    }
+  ],
+  "constraints": [
+    "No paid third-party APIs may be used.",
+    "Passwords must be stored hashed, never in plain text."
+  ],
+  "acceptance_criteria": [
+    "A new user can sign up and then log in with the same credentials.",
+    "A logged-in user can add a book to their list and see it appear in their book list."
+  ]
+}

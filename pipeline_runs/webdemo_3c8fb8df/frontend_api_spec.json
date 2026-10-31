@@ -1,0 +1,136 @@
+{
+  "project_name": "notes_manager",
+  "pages": [
+    {
+      "name": "UserSignupPage",
+      "description": "Creates a new user account with a hashed password",
+      "calls_api": {
+        "method": "POST",
+        "path": "/auth/signup",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "email": "string",
+          "password": "string"
+        },
+        "response_body": {
+          "id": "string",
+          "email": "string"
+        }
+      }
+    },
+    {
+      "name": "UserLoginPage",
+      "description": "Logs in a user and returns a JWT access token",
+      "calls_api": {
+        "method": "POST",
+        "path": "/auth/login",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "email": "string",
+          "password": "string"
+        },
+        "response_body": {
+          "access_token": "string",
+          "token_type": "string"
+        }
+      }
+    },
+    {
+      "name": "CreateNotePage",
+      "description": "Creates a new note",
+      "calls_api": {
+        "method": "POST",
+        "path": "/notes",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "owner_id": "string",
+          "title": "string",
+          "content": "text",
+          "status": "string",
+          "priority": "string"
+        },
+        "response_body": {
+          "id": "uuid",
+          "owner_id": "string",
+          "title": "string",
+          "content": "text",
+          "status": "string",
+          "priority": "string"
+        }
+      }
+    },
+    {
+      "name": "NoteListPage",
+      "description": "Lists notes with an optional status and priority filter and pagination",
+      "calls_api": {
+        "method": "GET",
+        "path": "/notes",
+        "base_url": "http://127.0.0.1:9100",
+        "query_params": {
+          "status": "string",
+          "priority": "string",
+          "limit": "int",
+          "offset": "int"
+        },
+        "response_body": "array of {id, owner_id, title, content, status, priority}"
+      }
+    },
+    {
+      "name": "NoteDeletePage",
+      "description": "Deletes an existing note",
+      "calls_api": {
+        "method": "DELETE",
+        "path": "/notes/{id}",
+        "base_url": "http://127.0.0.1:9100"
+      }
+    },
+    {
+      "name": "UpdateNotePage",
+      "description": "Edits an existing note's title and content Only changed fields need to be sent - fields left unchanged on the backend are preserved.",
+      "calls_api": {
+        "method": "PUT",
+        "path": "/notes/{id}",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "owner_id": "string",
+          "title": "string",
+          "content": "text",
+          "status": "string",
+          "priority": "string"
+        },
+        "response_body": {
+          "id": "uuid",
+          "owner_id": "string",
+          "title": "string",
+          "content": "text",
+          "status": "string",
+          "priority": "string"
+        }
+      }
+    },
+    {
+      "name": "UpdateNotePage2",
+      "description": "Updates the status or priority of an existing note Only changed fields need to be sent - fields left unchanged on the backend are preserved.",
+      "calls_api": {
+        "method": "PATCH",
+        "path": "/notes/{id}",
+        "base_url": "http://127.0.0.1:9100",
+        "request_body": {
+          "owner_id": "string",
+          "title": "string",
+          "content": "text",
+          "status": "string",
+          "priority": "string"
+        },
+        "response_body": {
+          "id": "uuid",
+          "owner_id": "string",
+          "title": "string",
+          "content": "text",
+          "status": "string",
+          "priority": "string"
+        }
+      }
+    }
+  ]
+}
